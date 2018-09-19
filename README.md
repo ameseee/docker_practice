@@ -1,24 +1,31 @@
-# README
+# Docker Practice for Amy & Sal
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+How to get this app running in a container on your machine:
 
-Things you may want to cover:
+```
+git clone git@github.com:ameseee/docker_practice.git
+```
 
-* Ruby version
+Create an image of the current repo:
 
-* System dependencies
+```
+docker-compose build
+```
 
-* Configuration
+Spin up a container using that image:
 
-* Database creation
+```
+docker-compose up 
+```
 
-* Database initialization
 
-* How to run the test suite
+After running those commands, open a new tab in your terminal and set up your database:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+docker-compose run web rake db:create
+docker-compose run web rake db:migrate
+docker-compose run web rake db:seed
+```
 
-* Deployment instructions
+Visit `0.0.0.0:3000` in the browser.
 
-* ...
